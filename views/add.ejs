@@ -3,6 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
     <title>게시판</title>
 </head>
 <body>
@@ -14,11 +24,12 @@
     </ol>
     <article>
         <form action="/topic/add" method="POST" >
-            <p><input type="text" name="title" value="고정" placeholder="제목"></p>
+            <p><input type="text" name="title"  placeholder="제목"></p>
             <p><textarea type="text" name="description" placeholder="내용입력" cols="100"></textarea></p>
             <p><input type="text" name="author" placeholder="글쓴이"></p>
             <p><input type="submit"></p>
         </form>
+        <a href="/topic"><button type="button" class="btn btn-primary">홈으로</button></a>
     </article>
 </body>
 </html>

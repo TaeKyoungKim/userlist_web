@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <title>Server Side JavaScript</title>
+</head>
+<body>
+    <h1><a href="/topic">Server Side Javascript</a></h1>
+    <table class="table table-dark">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Author</th>
+            <th>Delete</th>
+          </tr>
+        </thead>
+        <tbody>
+            <% for(i=0;i<topics.length;i++) {%>
+          <tr>
+            <td><%= topics[i].id %></td>
+            <td> <a href="/topic/<%= topics[i].id %>"><%= topics[i].title %></a></td>
+            <td><%= topics[i].description %></td>
+            <td><%= topics[i].author %></td>
+            <td><a href="/topic/delete/<%= topics[i].id %>" onclick="return deleteConfirm()"><button type="button" class="btn btn-warning">delete</button></a></td>
+          </tr>
+          <% } %>
+        </tbody>
+      </table>
+    <% if(topic) {  %>
+        <div class="card" >
+            <div class="card-body"><h1><%= topic.title %></h1></div>
+            <div class="card bg-success text-white">
+    <p><%= topic.description %></p>
+    <p>by <%= topic.author %></p> <br>
+            </div>
+        </div>
+    <a href="/topic/delete/<%= topic.id %>" onclick="return deleteConfirm()"><button type="button" class="btn btn-danger">delete</button></a>
+    <a href="/topic/edit/<%= topic.id %>"><button type="button" class="btn btn-success">edit</button></a>
+    
+    <% } else {  %>
+        <div class="card" >
+            <div class="card card-body"></div><h1>Welcome</h1></div>
+            <div class="card bg-success text-white">
+                <div> This is Server Side JavaScript Tutorial</div>
+              </div>
+         <hr>
+        <a href="/topic/add"><button type="button" class="btn btn-primary">추가</button></a>
+    </div>
+    <% } %>
+    
+    <script>
+        function deleteConfirm(){
+            return confirm("정말 삭제하시겠습니까?")
+        }
+    </script>
+</body>
+</html>
